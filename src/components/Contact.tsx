@@ -28,6 +28,18 @@ export default function Contact() {
   const submitText = formConfig.submitButtonText || footer.submitButtonText || "Submit";
   const copyrightText = footer.copyright || (contact as any).copyright || "© 2026 Ar. Lovesh Garg. All rights reserved.";
 
+  // Font sizes
+  const footerFs = (footer as any).fontSize || {};
+  const footerHeadingSizeMap: Record<string, string> = {
+    sm: 'clamp(2rem,5vw,4rem)',
+    md: 'clamp(3rem,7vw,6rem)',
+    lg: 'clamp(4rem,9vw,8rem)',
+    xl: 'clamp(5rem,11vw,10rem)',
+  };
+  const subtitleSizeMap: Record<string, string> = { sm:'10px', md:'12px', lg:'15px', xl:'18px' };
+  const footerHeadingSize = footerHeadingSizeMap[footerFs.heading] || footerHeadingSizeMap['md'];
+  const subtitleSize = subtitleSizeMap[footerFs.subtitle] || subtitleSizeMap['md'];
+
   const namePlaceholder = formConfig.namePlaceholder || "Name";
   const emailPlaceholder = formConfig.emailPlaceholder || "Email";
   const phonePlaceholder = formConfig.phonePlaceholder || "Phone Number (Optional)";
@@ -85,7 +97,7 @@ export default function Contact() {
 
       <div className="container mx-auto px-6 relative z-10 pb-10 pt-16 flex flex-col md:flex-row justify-between items-end gap-8">
         <div className="w-full md:w-1/2">
-          <h2 className="text-5xl md:text-8xl font-light mb-8">{headingText}</h2>
+          <h2 className="font-light mb-8" style={{ fontSize: footerHeadingSize }}>{headingText}</h2>
 
           {submitted ? (
             <motion.div
@@ -117,7 +129,7 @@ export default function Contact() {
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col gap-6 max-w-md">
               {formSubtitle && (
-                <p className="text-xs text-white/50 tracking-wider font-light -mt-2">
+                <p className="text-white/50 tracking-wider font-light -mt-2" style={{ fontSize: subtitleSize }}>
                   {formSubtitle}
                 </p>
               )}

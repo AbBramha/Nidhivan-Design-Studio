@@ -6,6 +6,18 @@ import siteContent from '@/data/siteContent.json';
 
 export default function Philosophy() {
   const { philosophy } = siteContent;
+  const fs = (philosophy as any).fontSize || {};
+
+  const sectionTitleSizeMap: Record<string, string> = { sm:'10px', md:'12px', lg:'15px', xl:'18px' };
+  const headingSizeMap: Record<string, string> = { sm:'clamp(1rem,3vw,1.8rem)', md:'clamp(1.25rem,4vw,2.5rem)', lg:'clamp(1.75rem,5vw,3.5rem)', xl:'clamp(2.5rem,6vw,4.5rem)' };
+  const paragraphSizeMap: Record<string, string> = { sm:'12px', md:'15px', lg:'18px', xl:'22px' };
+  const architectNameSizeMap: Record<string, string> = { sm:'14px', md:'18px', lg:'22px', xl:'28px' };
+
+  const sectionTitleSize = sectionTitleSizeMap[fs.sectionTitle] || sectionTitleSizeMap['md'];
+  const headingSize = headingSizeMap[fs.heading] || headingSizeMap['md'];
+  const paragraphSize = paragraphSizeMap[fs.paragraphs] || paragraphSizeMap['md'];
+  const architectNameSize = architectNameSizeMap[fs.architectName] || architectNameSizeMap['md'];
+
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -50,17 +62,17 @@ export default function Philosophy() {
           >
             {/* Text Content - Blended on Mobile, Normal on Desktop */}
             <div className="mix-blend-difference md:mix-blend-normal text-white md:text-black">
-              <h2 className="text-xs md:text-sm tracking-[0.3em] uppercase font-semibold mb-4 text-white md:text-black">
+              <h2 className="tracking-[0.3em] uppercase font-semibold mb-4 text-white md:text-black" style={{ fontSize: sectionTitleSize }}>
                 {philosophy.sectionTitle || "Philosophy"}
               </h2>
               
-              <p className="text-xl md:text-4xl lg:text-4xl font-light leading-snug text-white md:text-black">
+              <p className="font-light leading-snug text-white md:text-black" style={{ fontSize: headingSize }}>
                 {philosophy.heading}
               </p>
               
               <div className="mt-6 md:mt-8 w-12 md:w-16 h-[1px] bg-white md:bg-black"></div>
               
-              <div className="mt-6 md:mt-8 text-sm md:text-base max-w-2xl font-light leading-relaxed space-y-3 md:space-y-4 text-white/90 md:text-black/80">
+              <div className="mt-6 md:mt-8 max-w-2xl font-light leading-relaxed space-y-3 md:space-y-4 text-white/90 md:text-black/80" style={{ fontSize: paragraphSize }}>
                 <p>{philosophy.paragraph1}</p>
                 {philosophy.paragraph2 && <p>{philosophy.paragraph2}</p>}
               </div>
@@ -71,7 +83,7 @@ export default function Philosophy() {
               <p className="uppercase tracking-widest text-[10px] md:text-xs mb-0.5 md:mb-1 text-white/80">
                 {philosophy.architectTitle || "Architect & Visionary"}
               </p>
-              <p className="text-base md:text-xl font-medium text-white">
+              <p className="font-medium text-white" style={{ fontSize: architectNameSize }}>
                 {philosophy.architectName || "Mr. Lovesh Garg"}
               </p>
             </div>

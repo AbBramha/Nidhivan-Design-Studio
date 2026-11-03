@@ -16,6 +16,12 @@ export default function About() {
     stat2Label: 'Projects'
   };
 
+  const fs = (studio as any).fontSize || {};
+  const headingSizeMap: Record<string, string> = { sm:'clamp(1.5rem,3vw,2.5rem)', md:'clamp(2rem,4vw,3rem)', lg:'clamp(2.5rem,5vw,4rem)', xl:'clamp(3rem,6vw,5rem)' };
+  const paragraphSizeMap: Record<string, string> = { sm:'12px', md:'15px', lg:'18px', xl:'22px' };
+  const headingSize = headingSizeMap[fs.heading] || headingSizeMap['md'];
+  const paragraphSize = paragraphSizeMap[fs.paragraphs] || paragraphSizeMap['md'];
+
   return (
     <section className="py-32 bg-[#0a0a0a] text-white">
       <div className="container mx-auto px-6 md:px-12 flex flex-col md:flex-row gap-16 items-center">
@@ -47,11 +53,11 @@ export default function About() {
             <h2 className="text-sm tracking-[0.3em] uppercase text-neutral-500 mb-6">
               {studio.badge || 'The Studio'}
             </h2>
-            <h3 className="text-4xl md:text-5xl font-light mb-8">
+            <h3 className="font-light mb-8" style={{ fontSize: headingSize }}>
               {studio.heading || 'Designing with Context'}
             </h3>
             
-            <div className="space-y-6 text-neutral-400 font-light leading-relaxed">
+            <div className="space-y-6 text-neutral-400 font-light leading-relaxed" style={{ fontSize: paragraphSize }}>
               {studio.paragraph1 && (
                 <p>{studio.paragraph1}</p>
               )}

@@ -6,6 +6,24 @@ import siteContent from '@/data/siteContent.json';
 
 export default function Hero() {
   const { hero } = siteContent;
+  const fs = (hero as any).fontSize || {};
+
+  // Map size keys to CSS values
+  const headlineSizeMap: Record<string, string> = {
+    sm: 'clamp(1.5rem, 4vw, 2.5rem)',
+    md: 'clamp(2rem, 5vw, 3.5rem)',
+    lg: 'clamp(2.5rem, 6vw, 5rem)',
+    xl: 'clamp(3rem, 8vw, 7rem)',
+  };
+  const buttonSizeMap: Record<string, string> = {
+    sm: '10px',
+    md: '13px',
+    lg: '16px',
+    xl: '20px',
+  };
+  const headlineFontSize = headlineSizeMap[fs.headline] || headlineSizeMap['md'];
+  const buttonFontSize = buttonSizeMap[fs.buttons] || buttonSizeMap['md'];
+
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -29,7 +47,7 @@ export default function Hero() {
           playsInline
           className="w-full h-full object-cover opacity-60 hidden md:block"
         >
-          <source src={hero.desktopVideo || "/Hero video 16-9.mp4"} type="video/mp4" />
+          <source src={hero.desktopVideo || "/Hero Final Final video 16-9.mp4"} type="video/mp4" />
         </video>
         {/* Mobile Video */}
         <video 
@@ -38,7 +56,7 @@ export default function Hero() {
           playsInline
           className="w-full h-full object-cover opacity-60 md:hidden"
         >
-          <source src={hero.mobileVideo || "/Hero video  9-16.mp4"} type="video/mp4" />
+          <source src={hero.mobileVideo || "/Hero final final video 9-16.mp4"} type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-[#0d0d0d]"></div>
       </motion.div>
@@ -50,6 +68,7 @@ export default function Hero() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1.2, delay: 6.2 }}
           className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tighter text-left mb-4 md:mb-8 pointer-events-auto whitespace-pre-line"
+          style={{ fontSize: headlineFontSize }}
         >
           {hero.headline || "Designing Spaces\nThat Feel Alive."}
         </motion.h1>
@@ -60,12 +79,12 @@ export default function Hero() {
           className="flex flex-col sm:flex-row items-start gap-2 md:gap-4 pointer-events-auto"
         >
           <Link href={(hero as any).button1Link || "#design-matrix"}>
-            <button className="px-4 py-1.5 md:px-8 md:py-3 text-[11px] md:text-base bg-white text-black rounded md:rounded-lg font-medium tracking-wide hover:bg-neutral-200 transition-colors">
+            <button className="px-4 py-1.5 md:px-8 md:py-3 bg-white text-black rounded md:rounded-lg font-medium tracking-wide hover:bg-neutral-200 transition-colors" style={{ fontSize: buttonFontSize }}>
               {hero.button1Text || "Find Your Design Style"}
             </button>
           </Link>
           <Link href={(hero as any).button2Link || "#project-estimator"}>
-            <button className="px-4 py-1.5 md:px-8 md:py-3 text-[11px] md:text-base border border-white text-white rounded md:rounded-lg font-medium tracking-wide hover:bg-white/10 transition-colors">
+            <button className="px-4 py-1.5 md:px-8 md:py-3 border border-white text-white rounded md:rounded-lg font-medium tracking-wide hover:bg-white/10 transition-colors" style={{ fontSize: buttonFontSize }}>
               {hero.button2Text || "Estimate Your Project"}
             </button>
           </Link>

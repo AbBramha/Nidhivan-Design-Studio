@@ -1284,6 +1284,33 @@ export default function AdminPage() {
                     </label>
                   </div>
                 </div>
+                {/* Font Size Controls — Hero */}
+                <div className="md:col-span-2 bg-[#181818] border border-white/5 rounded-xl p-4 space-y-3">
+                  <div className="flex items-center gap-2 pb-2 border-b border-white/5">
+                    <span className="text-base">🔠</span>
+                    <span className="text-xs uppercase tracking-widest text-white/70 font-semibold">Typography & Font Sizes</span>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    {[{ key: 'headline', label: 'Headline Size' }, { key: 'buttons', label: 'Button Text Size' }].map(({ key, label }) => {
+                      const heroFs = (siteContent.hero as any).fontSize || {};
+                      const sizes = [{ v: 'sm', l: 'Small' }, { v: 'md', l: 'Medium' }, { v: 'lg', l: 'Large' }, { v: 'xl', l: 'XL' }];
+                      return (
+                        <div key={key}>
+                          <label className="block text-[10px] uppercase tracking-widest text-white/50 mb-2">{label}</label>
+                          <div className="flex gap-1">
+                            {sizes.map(s => (
+                              <button key={s.v} type="button"
+                                onClick={() => setSiteContent({ ...siteContent, hero: { ...siteContent.hero, fontSize: { ...heroFs, [key]: s.v } } as any })}
+                                className={`flex-1 py-1.5 rounded-lg text-[10px] font-semibold uppercase tracking-wider transition-all cursor-pointer ${ heroFs[key] === s.v || (!heroFs[key] && s.v === 'md') ? 'bg-amber-400 text-black' : 'bg-white/5 text-white/50 hover:bg-white/10' }`}>
+                                {s.l}
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -1457,6 +1484,33 @@ export default function AdminPage() {
                         }}
                       />
                     </label>
+                  </div>
+                </div>
+                {/* Font Size Controls — Philosophy */}
+                <div className="md:col-span-2 bg-[#181818] border border-white/5 rounded-xl p-4 space-y-3">
+                  <div className="flex items-center gap-2 pb-2 border-b border-white/5">
+                    <span className="text-base">🔠</span>
+                    <span className="text-xs uppercase tracking-widest text-white/70 font-semibold">Typography & Font Sizes</span>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    {[{ key: 'sectionTitle', label: 'Section Label' }, { key: 'heading', label: 'Main Heading' }, { key: 'paragraphs', label: 'Body Paragraphs' }, { key: 'architectName', label: 'Architect Name' }].map(({ key, label }) => {
+                      const philoFs = (siteContent.philosophy as any).fontSize || {};
+                      const sizes = [{ v: 'sm', l: 'Small' }, { v: 'md', l: 'Medium' }, { v: 'lg', l: 'Large' }, { v: 'xl', l: 'XL' }];
+                      return (
+                        <div key={key}>
+                          <label className="block text-[10px] uppercase tracking-widest text-white/50 mb-2">{label}</label>
+                          <div className="flex gap-1">
+                            {sizes.map(s => (
+                              <button key={s.v} type="button"
+                                onClick={() => setSiteContent({ ...siteContent, philosophy: { ...siteContent.philosophy, fontSize: { ...philoFs, [key]: s.v } } as any })}
+                                className={`flex-1 py-1.5 rounded-lg text-[10px] font-semibold uppercase tracking-wider transition-all cursor-pointer ${ philoFs[key] === s.v || (!philoFs[key] && s.v === 'md') ? 'bg-amber-400 text-black' : 'bg-white/5 text-white/50 hover:bg-white/10' }`}>
+                                {s.l}
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
@@ -1742,6 +1796,33 @@ export default function AdminPage() {
                         </div>
                       </div>
                     </div>
+                    {/* Font Size Controls — Studio */}
+                    <div className="md:col-span-2 bg-[#181818] border border-white/5 rounded-xl p-4 space-y-3">
+                      <div className="flex items-center gap-2 pb-2 border-b border-white/5">
+                        <span className="text-base">🔠</span>
+                        <span className="text-xs uppercase tracking-widest text-white/70 font-semibold">Typography & Font Sizes</span>
+                      </div>
+                      <div className="grid grid-cols-2 gap-4">
+                        {[{ key: 'heading', label: 'Section Heading' }, { key: 'paragraphs', label: 'Body Paragraphs' }].map(({ key, label }) => {
+                          const studioFs = (studioData as any).fontSize || {};
+                          const sizes = [{ v: 'sm', l: 'Small' }, { v: 'md', l: 'Medium' }, { v: 'lg', l: 'Large' }, { v: 'xl', l: 'XL' }];
+                          return (
+                            <div key={key}>
+                              <label className="block text-[10px] uppercase tracking-widest text-white/50 mb-2">{label}</label>
+                              <div className="flex gap-1">
+                                {sizes.map(s => (
+                                  <button key={s.v} type="button"
+                                    onClick={() => setSiteContent({ ...siteContent, studio: { ...studioData, fontSize: { ...studioFs, [key]: s.v } } as any })}
+                                    className={`flex-1 py-1.5 rounded-lg text-[10px] font-semibold uppercase tracking-wider transition-all cursor-pointer ${ studioFs[key] === s.v || (!studioFs[key] && s.v === 'md') ? 'bg-amber-400 text-black' : 'bg-white/5 text-white/50 hover:bg-white/10' }`}>
+                                    {s.l}
+                                  </button>
+                                ))}
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
                   </div>
                 </div>
               );
@@ -2009,6 +2090,30 @@ export default function AdminPage() {
                         </div>
                       </div>
                     ))}
+                  </div>
+
+                  {/* Font Size Controls — Testimonials */}
+                  <div className="bg-[#181818] border border-white/5 rounded-xl p-4 space-y-3">
+                    <div className="flex items-center gap-2 pb-2 border-b border-white/5">
+                      <span className="text-base">🔠</span>
+                      <span className="text-xs uppercase tracking-widest text-white/70 font-semibold">Typography & Font Sizes</span>
+                    </div>
+                    <div className="max-w-xs">
+                      <label className="block text-[10px] uppercase tracking-widest text-white/50 mb-2">Quote Text Size</label>
+                      <div className="flex gap-1">
+                        {[{ v: 'sm', l: 'Small' }, { v: 'md', l: 'Medium' }, { v: 'lg', l: 'Large' }, { v: 'xl', l: 'XL' }].map(s => {
+                          const tConf = (siteContent as any).testimonialsConfig || {};
+                          const tFs = tConf.fontSize || {};
+                          return (
+                            <button key={s.v} type="button"
+                              onClick={() => setSiteContent({ ...siteContent, testimonialsConfig: { ...tConf, fontSize: { ...tFs, quote: s.v } } } as any)}
+                              className={`flex-1 py-1.5 rounded-lg text-[10px] font-semibold uppercase tracking-wider transition-all cursor-pointer ${ tFs.quote === s.v || (!tFs.quote && s.v === 'md') ? 'bg-amber-400 text-black' : 'bg-white/5 text-white/50 hover:bg-white/10' }`}>
+                              {s.l}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
                   </div>
                 </div>
               );
@@ -2328,6 +2433,34 @@ export default function AdminPage() {
                           </label>
                         </div>
                       </div>
+                    </div>
+                  </div>
+
+                  {/* Font Size Controls — Footer */}
+                  <div className="md:col-span-2 bg-[#181818] border border-white/5 rounded-xl p-4 space-y-3">
+                    <div className="flex items-center gap-2 pb-2 border-b border-white/5">
+                      <span className="text-base">🔠</span>
+                      <span className="text-xs uppercase tracking-widest text-white/70 font-semibold">Typography & Font Sizes</span>
+                    </div>
+                    <div className="grid grid-cols-2 gap-4">
+                      {[{ key: 'heading', label: 'Heading "Let\'s Talk."' }, { key: 'subtitle', label: 'Form Subtitle Text' }].map(({ key, label }) => {
+                        const footerFs = (footerData as any).fontSize || {};
+                        const sizes = [{ v: 'sm', l: 'Small' }, { v: 'md', l: 'Medium' }, { v: 'lg', l: 'Large' }, { v: 'xl', l: 'XL' }];
+                        return (
+                          <div key={key}>
+                            <label className="block text-[10px] uppercase tracking-widest text-white/50 mb-2">{label}</label>
+                            <div className="flex gap-1">
+                              {sizes.map(s => (
+                                <button key={s.v} type="button"
+                                  onClick={() => updateFooter({ fontSize: { ...footerFs, [key]: s.v } } as any)}
+                                  className={`flex-1 py-1.5 rounded-lg text-[10px] font-semibold uppercase tracking-wider transition-all cursor-pointer ${ footerFs[key] === s.v || (!footerFs[key] && s.v === 'md') ? 'bg-amber-400 text-black' : 'bg-white/5 text-white/50 hover:bg-white/10' }`}>
+                                  {s.l}
+                                </button>
+                              ))}
+                            </div>
+                          </div>
+                        );
+                      })}
                     </div>
                   </div>
                 </div>

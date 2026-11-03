@@ -17,8 +17,12 @@
     "button1Link": "#design-matrix",
     "button2Text": "Estimate Your Project",
     "button2Link": "#project-estimator",
-    "desktopVideo": "/Hero video 16-9.mp4",
-    "mobileVideo": "/Hero video  9-16.mp4"
+    "desktopVideo": "/Hero Final Final video 16-9.mp4",
+    "mobileVideo": "/Hero final final video 9-16.mp4",
+    "fontSize": {
+      "headline": "md",
+      "buttons": "md"
+    }
   },
   "philosophy": {
     "sectionTitle": "Philosophy",
@@ -28,7 +32,13 @@
     "architectTitle": "Architect & Visionary",
     "architectName": "Mr. Lovesh Garg",
     "desktopImage": "/Philosophy section.png",
-    "mobileImage": "/Philosophy section 9-16.png"
+    "mobileImage": "/Philosophy section 9-16.png",
+    "fontSize": {
+      "sectionTitle": "md",
+      "heading": "md",
+      "paragraphs": "md",
+      "architectName": "md"
+    }
   },
   "expertise": [
     {
@@ -61,7 +71,11 @@
     "stat1Value": "15+",
     "stat1Label": "Years Exp",
     "stat2Value": "40+",
-    "stat2Label": "Projects"
+    "stat2Label": "Projects",
+    "fontSize": {
+      "heading": "md",
+      "paragraphs": "md"
+    }
   },
   "testimonials": [
     {
@@ -77,12 +91,21 @@
       "bg": "/ChatGPT Image Aug 4, 2026, 03_12_09 PM.png"
     }
   ],
+  "testimonialsConfig": {
+    "fontSize": {
+      "quote": "md"
+    }
+  },
   "footer": {
     "heading": "Let's Talk.",
     "submitButtonText": "Submit",
     "desktopBackground": "/Footer.png",
     "mobileBackground": "/mobile footer.png",
     "copyright": "© 2026 Ar. Lovesh Garg. All rights reserved.",
+    "fontSize": {
+      "heading": "md",
+      "subtitle": "md"
+    },
     "form": {
       "subtitle": "Direct studio inquiry for architectural commissions & private consultations",
       "namePlaceholder": "Name",

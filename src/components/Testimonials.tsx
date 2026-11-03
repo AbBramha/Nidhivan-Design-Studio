@@ -25,6 +25,16 @@ export default function Testimonials() {
     ? siteContent.testimonials
     : defaultTestimonials;
 
+  const tConfig = (siteContent as any).testimonialsConfig || {};
+  const fs = tConfig.fontSize || {};
+  const quoteSizeMap: Record<string, string> = {
+    sm: 'clamp(1.2rem, 3vw, 2rem)',
+    md: 'clamp(1.5rem, 4vw, 3.5rem)',
+    lg: 'clamp(2rem, 5vw, 4.5rem)',
+    xl: 'clamp(2.5rem, 6vw, 6rem)',
+  };
+  const quoteFontSize = quoteSizeMap[fs.quote] || quoteSizeMap['md'];
+
   const activeIndex = list.length > 0 ? current % list.length : 0;
   const currentItem = list[activeIndex] || defaultTestimonials[0];
 
@@ -62,7 +72,7 @@ export default function Testimonials() {
             exit={{ opacity: 0, y: -30 }}
             transition={{ duration: 0.8 }}
           >
-            <p className="text-3xl sm:text-4xl md:text-6xl font-light italic leading-tight mb-8 font-serif">
+            <p className="font-light italic leading-tight mb-8 font-serif" style={{ fontSize: quoteFontSize }}>
               "{currentItem.text}"
             </p>
             <p className="text-xs sm:text-sm uppercase tracking-[0.3em] text-neutral-300">
