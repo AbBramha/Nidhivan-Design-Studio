@@ -43,7 +43,6 @@ export default function Hero() {
         {/* Optimized Responsive Background Video */}
         <video 
           autoPlay 
-          loop
           muted 
           playsInline
           preload="metadata"
