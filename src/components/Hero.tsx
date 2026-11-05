@@ -40,23 +40,24 @@ export default function Hero() {
         className="absolute inset-0 w-full h-full"
         initial={{ willChange: "transform, opacity" }}
       >
-        {/* Desktop Video */}
+        {/* Optimized Responsive Background Video */}
         <video 
           autoPlay 
+          loop
           muted 
           playsInline
-          className="w-full h-full object-cover opacity-60 hidden md:block"
+          preload="metadata"
+          className="w-full h-full object-cover opacity-60"
         >
-          <source src={hero.desktopVideo || "/Hero Final Final video 16-9.mp4"} type="video/mp4" />
-        </video>
-        {/* Mobile Video */}
-        <video 
-          autoPlay 
-          muted 
-          playsInline
-          className="w-full h-full object-cover opacity-60 md:hidden"
-        >
-          <source src={hero.mobileVideo || "/Hero final final video 9-16.mp4"} type="video/mp4" />
+          <source 
+            src={hero.desktopVideo || "/Hero Final Final video 16-9.mp4"} 
+            type="video/mp4" 
+            media="(min-width: 768px)" 
+          />
+          <source 
+            src={hero.mobileVideo || "/Hero final final video 9-16.mp4"} 
+            type="video/mp4" 
+          />
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-[#0d0d0d]"></div>
       </motion.div>

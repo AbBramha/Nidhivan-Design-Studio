@@ -229,7 +229,14 @@ export default function Contact() {
             )}
           </div>
           
-          <div className="mt-8 flex flex-wrap items-center justify-between gap-4 text-xs text-white/50 font-medium">
+          {/* Legal Policies */}
+          <div className="flex flex-wrap gap-4 mt-6 text-[10px] uppercase tracking-widest text-white/40">
+            <Link href="/privacy" className="hover:text-amber-400 transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-amber-400 transition-colors">Terms &amp; Conditions</Link>
+            <Link href="/cookies" className="hover:text-amber-400 transition-colors">Cookies Policy</Link>
+          </div>
+
+          <div className="mt-4 flex flex-wrap items-center justify-between gap-4 text-xs text-white/50 font-medium w-full">
             <p>{copyrightText}</p>
             <Link href="/admin" className="text-white/20 hover:text-white/60 transition-colors tracking-widest uppercase text-[10px]">
               Studio Portal

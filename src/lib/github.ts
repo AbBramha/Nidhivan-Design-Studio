@@ -18,20 +18,25 @@ export async function saveFileToRepo({
   let committedToGithub = false;
 
   // 1. In local environment or if local disk is writable, write to disk
-  try {
-    const fullLocalPath = path.join(/*turbopackIgnore: true*/ process.cwd(), filePath);
-    const parentDir = path.dirname(fullLocalPath);
-    await fs.mkdir(parentDir, { recursive: true });
+  const isVercel = !!process.env.VERCEL;
+  if (!isVercel) {
+    try {
+      const fullLocalPath = path.join(/*turbopackIgnore: true*/ process.cwd(), filePath);
+      const parentDir = path.dirname(fullLocalPath);
+      await fs.mkdir(parentDir, { recursive: true });
 
-    if (isBase64) {
-      const buffer = Buffer.from(content, 'base64');
-      await fs.writeFile(fullLocalPath, buffer);
-    } else {
-      await fs.writeFile(fullLocalPath, content, 'utf-8');
+      if (isBase64) {
+        const buffer = Buffer.from(content, 'base64');
+        await fs.writeFile(fullLocalPath, buffer);
+      } else {
+        await fs.writeFile(fullLocalPath, content, 'utf-8');
+      }
+      savedLocally = true;
+    } catch (err) {
+      console.warn('Local file write skipped or failed (common in serverless):', err);
     }
-    savedLocally = true;
-  } catch (err) {
-    console.warn('Local file write skipped or failed (common in serverless):', err);
+  } else {
+    // Running in Vercel (or another serverless platform) – local disk is read‑only, so we only commit to GitHub.
   }
 
   // 2. If GitHub environment variables are configured, commit via GitHub REST API

@@ -28,7 +28,8 @@ export default function FeaturedProjects() {
           src="/ChatGPT Image Aug 4, 2026, 03_48_23 PM.png"
           alt="Selected Works Background"
           fill
-          quality={80}
+          quality={75}
+          sizes="100vw"
           className="object-cover object-center opacity-40"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent"></div>

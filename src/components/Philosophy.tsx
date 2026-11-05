@@ -40,6 +40,7 @@ export default function Philosophy() {
           alt="Philosophy Background Desktop"
           fill
           quality={80}
+          sizes="(min-width: 768px) 100vw, 1px"
           className="object-cover object-center hidden md:block"
         />
         {/* Mobile Image */}
@@ -48,6 +49,7 @@ export default function Philosophy() {
           alt="Philosophy Background Mobile"
           fill
           quality={80}
+          sizes="(max-width: 767px) 100vw, 1px"
           className="object-cover object-center md:hidden"
         />
       </motion.div>
