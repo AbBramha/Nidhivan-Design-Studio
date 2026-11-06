@@ -285,9 +285,9 @@ export default function EstimatePage() {
                         </div>
                       </div>
 
-                      <div className="flex items-center justify-between mb-2">
+                      <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-4 mb-2">
                         <h3 className="text-2xl font-serif font-light text-white">{card.title}</h3>
-                        <span className="text-[10px] uppercase tracking-widest text-white/50 font-mono">
+                        <span className="text-[10px] uppercase tracking-widest text-white/50 font-mono sm:text-right">
                           {card.subtitle}
                         </span>
                       </div>
