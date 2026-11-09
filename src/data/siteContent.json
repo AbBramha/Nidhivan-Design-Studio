@@ -4,11 +4,31 @@
     "brandName": "Nidhivan",
     "brandSubtitle": "Design Studio",
     "navLinks": [
-      { "id": "philosophy", "label": "Philosophy", "href": "/#philosophy" },
-      { "id": "works", "label": "Works", "href": "/#works" },
-      { "id": "matrix", "label": "Matrix", "href": "/#design-matrix" },
-      { "id": "estimator", "label": "Estimator", "href": "/#project-estimator" },
-      { "id": "contact", "label": "Contact", "href": "/#contact" }
+      {
+        "id": "philosophy",
+        "label": "Philosophy",
+        "href": "/#philosophy"
+      },
+      {
+        "id": "works",
+        "label": "Works",
+        "href": "/#works"
+      },
+      {
+        "id": "matrix",
+        "label": "Matrix",
+        "href": "/#design-matrix"
+      },
+      {
+        "id": "estimator",
+        "label": "Estimator",
+        "href": "/#project-estimator"
+      },
+      {
+        "id": "contact",
+        "label": "Contact",
+        "href": "/#contact"
+      }
     ]
   },
   "hero": {
@@ -68,7 +88,7 @@
     "paragraph1": "Founded on the principle that architecture should be a profound response to its environment, the studio focuses on creating spaces that harmonize with their surroundings.",
     "paragraph2": "From the rugged landscapes of Ladakh to the dense urban fabric of modern cities, every project is an exploration of materiality, light, and human scale.",
     "image": "/5th section.png",
-    "stat1Value": "15+",
+    "stat1Value": "04+",
     "stat1Label": "Years Exp",
     "stat2Value": "40+",
     "stat2Label": "Projects",
@@ -120,16 +140,34 @@
   "estimator": {
     "rates": {
       "Essential": {
-        "Architecture": { "sqft": 1300, "sqm": 13988 },
-        "Interior": { "sqft": 1200, "sqm": 12912 }
+        "Architecture": {
+          "sqft": 1300,
+          "sqm": 13988
+        },
+        "Interior": {
+          "sqft": 1200,
+          "sqm": 12912
+        }
       },
       "Premium": {
-        "Architecture": { "sqft": 1500, "sqm": 16140 },
-        "Interior": { "sqft": 1500, "sqm": 16140 }
+        "Architecture": {
+          "sqft": 1500,
+          "sqm": 16140
+        },
+        "Interior": {
+          "sqft": 1500,
+          "sqm": 16140
+        }
       },
       "Luxury": {
-        "Architecture": { "sqft": 1500, "sqm": 16140 },
-        "Interior": { "sqft": 2200, "sqm": 23672 }
+        "Architecture": {
+          "sqft": 1500,
+          "sqm": 16140
+        },
+        "Interior": {
+          "sqft": 2200,
+          "sqm": 23672
+        }
       }
     }
   },
