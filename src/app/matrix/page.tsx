@@ -392,6 +392,77 @@ export default function MatrixPage() {
 
               </div>
 
+              {/* 3. YOUR SELECTED PREFERENCES */}
+              <div className="mb-14 bg-white/[0.03] border border-white/10 rounded-sm p-6 md:p-8 backdrop-blur-sm">
+                <div className="mb-8 pb-4 border-b border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                  <div>
+                    <span className="text-[10px] uppercase tracking-[0.25em] text-white/50 block font-mono mb-1">
+                      Your Selected Inputs
+                    </span>
+                    <h3 className="text-2xl md:text-3xl font-serif font-light text-white">
+                      Your Design Matrix Selections
+                    </h3>
+                  </div>
+                  <span className="text-xs text-white/40 font-mono">
+                    5 of 5 questions answered
+                  </span>
+                </div>
+
+                <div className="space-y-8">
+                  {questions.map((q) => {
+                    const chosenIds = selections[q.id] || [];
+                    const chosenOptions = q.options.filter((opt) => chosenIds.includes(opt.id));
+                    if (chosenOptions.length === 0) return null;
+
+                    return (
+                      <div key={q.id} className="pt-6 first:pt-0 border-t border-white/5 first:border-t-0">
+                        <div className="flex items-baseline gap-2.5 mb-3">
+                          <span className="text-[10px] font-mono text-white/40 uppercase tracking-widest shrink-0">
+                            Question 0{q.id}
+                          </span>
+                          <span className="text-white/20">/</span>
+                          <h4 className="text-sm md:text-base font-light text-white">
+                            {q.title}
+                          </h4>
+                        </div>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                          {chosenOptions.map((opt) => (
+                            <div
+                              key={opt.id}
+                              className="flex items-center gap-4 p-3 rounded-sm bg-white/[0.02] border border-white/10 hover:border-white/20 transition-colors"
+                            >
+                              {opt.img && (
+                                <div className="relative w-20 h-16 shrink-0 rounded-sm overflow-hidden border border-white/10 bg-neutral-900">
+                                  <Image
+                                    src={opt.img}
+                                    alt={opt.label}
+                                    fill
+                                    sizes="80px"
+                                    className="object-cover"
+                                  />
+                                </div>
+                              )}
+                              <div className="min-w-0 flex-1">
+                                <span className="text-[9px] uppercase tracking-wider text-white/40 font-mono block mb-0.5">
+                                  Option {opt.id}
+                                </span>
+                                <h5 className="text-sm font-serif font-light text-white mb-1">
+                                  {opt.label}
+                                </h5>
+                                <p className="text-[11px] text-white/60 font-light line-clamp-2 leading-relaxed">
+                                  {opt.desc}
+                                </p>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+
               {/* Consultation & Reset Buttons */}
               <div className="text-center pb-12">
                 <a href="https://cal.id/nidhivandesignstudio-gmail" target="_blank" rel="noopener noreferrer">
