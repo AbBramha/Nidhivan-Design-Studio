@@ -57,9 +57,8 @@ export default function Header() {
             />
           </div>
           <div className={`font-serif text-xl md:text-2xl font-medium tracking-wide transition-colors duration-300 ${scrolled ? 'text-black' : 'text-white'}`}>
-            {header.brandName || 'Nidhivan'}{' '}
-            {header.brandSubtitle && (
-              <span className="font-light text-xs md:text-sm tracking-widest uppercase ml-2 opacity-80">
+            <span>{header.brandName || 'Nidhivan'}</span>{header.brandSubtitle && (
+              <span className="font-light text-xs md:text-sm tracking-widest uppercase ml-[0.35em] opacity-80">
                 {header.brandSubtitle}
               </span>
             )}
